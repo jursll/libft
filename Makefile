@@ -10,9 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-Library	= libft
+Library		= libft
 
-files	= ft_isalpha \
+files		= ft_isalpha \
 		  ft_isdigit \
 		  ft_isalnum \
 		  ft_isascii \
@@ -26,31 +26,35 @@ files	= ft_isalpha \
 		  ft_strlcat \
 		  ft_toupper \
 		  ft_tolower \
+		  ft_strchr \
+		  ft_strrchr \
 
 Compiler	= gcc
-
 CmpFlags	= -Wall -Wextra -Werror
+OUTN		= $(Library).a
+CFILES		= $(files:%=%.c)
+OFILES		= $(files:%=%.o)
+NAME		= $(OUTN)
 
-OUTN	= $(Library).a
-
-CFILES	= $(files:%=%.c)
-
-OFILES	= $(files:%=%.o)
-
-NAME	= $(OUTN)
+# // Nouveau fichier pour test //
+MAIN_C		= main.c
+TEST_EXEC	= test
 
 $(NAME):
 		$(Compiler)	$(CmpFlags) -c	$(CFILES) -I./
 		ar -rc $(OUTN)	$(OFILES)
 
-all:	$(NAME)
+# // Règle pour compiler avec main.c //
+$(TEST_EXEC): $(NAME) $(MAIN_C)
+		$(Compiler) $(CmpFlags) -o $(TEST_EXEC) $(MAIN_C) $(NAME)
+
+all:	$(NAME) $(TEST_EXEC)
 
 clean:
-		rm -f $(NAME)
 		rm -f $(OFILES)
 
 fclean:	clean
-		rm -f $(NAME)
+		rm -f $(NAME) $(TEST_EXEC)
 
 re:		fclean all
 

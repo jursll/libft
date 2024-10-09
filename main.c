@@ -13,6 +13,41 @@
 #include <stdio.h>
 #include "libft.h"
 
+// strchr - strrchr
+char	*ft_strrchr(const char *s, int i);
+
+int	main(void)
+{
+	char str1[] = "Hello, World!";
+	char c1 = 'o';
+	char *result1 = ft_strrchr(str1, c1);
+
+	if (result1)
+		printf("Test 1 - Trouvé : '%c' dans \"%s\" à la position : %ld\n", c1, str1, result1 - str1);
+	else
+		printf("Test 1 - Caractère '%c' non trouvé dans \"%s\"\n", c1, str1);
+
+	char c2 = 'z';
+	char *result2 = ft_strrchr(str1, c2);
+
+	if (result2)
+		printf("Test 2 - Trouvé : '%c' dans \"%s\" à la position : %ld\n", c2, str1, result2 - str1);
+	else
+		printf("Test 2 - Caractère '%c' non trouvé dans \"%s\"\n", c2, str1);
+
+	char c3 = '\0';
+	char *result3 = ft_strrchr(str1, c3);
+
+	if (result3)
+		printf("Test 3 - Caractère '\\0' trouvé à la fin de la chaîne \"%s\"\n", str1);
+	else
+		printf("Test 3 - Caractère '\\0' non trouvé\n");
+
+	return (0);
+}
+
+/*
+// toupper - tolower
 int	ft_tolower(int c);
 
 int	main(int ac, char **av)
@@ -26,6 +61,7 @@ int	main(int ac, char **av)
 		printf("nope");
 	return (0);
 }
+*/
 
 /*
 // strlcpy - strlcat
