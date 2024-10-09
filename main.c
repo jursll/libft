@@ -6,13 +6,111 @@
 /*   By: julrusse <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 12:51:05 by julrusse          #+#    #+#             */
-/*   Updated: 2024/10/06 17:35:11 by julrusse         ###   ########.fr       */
+/*   Updated: 2024/10/09 16:47:33 by julrusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "libft.h"
 
+int	ft_atoi(const char *str);
+
+int	main(void)
+{
+	printf("Test 1: %d\n", ft_atoi("   \t\n\f42abc"));
+	printf("Test 2: %d\n", ft_atoi("-123"));
+	printf("test 3: %d\n", ft_atoi("+456xyz"));
+	return (0);
+}
+
+/*
+// strnstr
+char *ft_strnstr(const char *str, const char *substr, size_t len);
+
+int	main(void)
+{
+	char *str = "Hello, World!";
+	char *substr = "World";
+	char *result;
+
+	result = ft_strnstr(str, substr, 13);
+	if (result)
+		printf("Found: %s\n", result);
+	else
+		printf("Not found");
+
+	result = ft_strnstr(str, substr, 5);
+	if (result)
+		printf("Found: %s\n", result);
+	else
+		printf("not found");
+
+	return (0);
+}
+*/
+
+/*
+// memcmp
+int	ft_memcmp(const void *s1, const void *s2, size_t n);
+
+int	main(void)
+{
+	char s1[] = "Hello";
+	char s2[] = "Helzo";
+
+	printf("Test 1: %d\n", ft_memcmp(s1, s2, 5));
+	printf("Test 2: %d\n", ft_memcmp(s1, s2, 3));
+	printf("Test 3: %d\n", ft_memcmp(s1, s1, 5));
+	return (0);
+}
+*/
+
+/*
+// memchr
+void	*ft_memchr(const void *s, int c, size_t n);
+
+int	main(void)
+{
+	char s[] = "Hello, World!";
+	char *result;
+
+	result = ft_memchr(s, 'o', 13);
+	if (result)
+		printf("Char found: %s\n", result);
+	else
+		printf("Char not found\n");
+
+	result = ft_memchr(s, 'z', 13);
+	if (result)
+		printf("Char found: %s\n", result);
+	else
+		printf("Char not found\n");
+
+	return (0);
+}
+*/
+
+/*
+// strncmp
+int	ft_strncmp(const char *s1, const char *s2, size_t n);
+
+int	main(void)
+{
+	const char s1[] = "Hello, World!";
+	const char s2[] = "Hello, World!";
+	const char s3[] = "Hello, everyone!";
+	const char s4[] = "Hi";
+
+	printf("Test 1: same, n = 5, %d.\n", ft_strncmp(s1, s2, 5));
+	printf("Test 2: same, n = 13, %d.\n", ft_strncmp(s1, s2, 13));
+	printf("Test 3: not same, n = 7, %d.\n", ft_strncmp(s1, s3, 7));
+	printf("Test 4: not same, n = 13, %d.\n", ft_strncmp(s1, s3, 13));
+	printf("Test 5: s2 is too short, n = 5, %d.\n", ft_strncmp(s1, s4, 5));
+	return (0);
+}
+*/
+
+/*
 // strchr - strrchr
 char	*ft_strrchr(const char *s, int i);
 
@@ -45,6 +143,7 @@ int	main(void)
 
 	return (0);
 }
+*/
 
 /*
 // toupper - tolower

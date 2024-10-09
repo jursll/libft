@@ -1,26 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julrusse <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/09 11:35:59 by julrusse          #+#    #+#             */
-/*   Updated: 2024/10/09 11:36:05 by julrusse         ###   ########.fr       */
+/*   Created: 2024/10/09 16:21:55 by julrusse          #+#    #+#             */
+/*   Updated: 2024/10/09 16:40:13 by julrusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-char	*ft_strchr(const char *s, int i)
+int	ft_atoi(const char *str)
 {
-	while (*s)
+	int	i;
+	int	sign;
+	int	result;
+
+	i = 0;
+	sign = 1;
+	result = 0;
+
+	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		if (*s == (char)i)
-			return ((char *)s);
-		s++;
+		if (str[i] == '-')
+			sign *= -1;
+		i++;
 	}
-	if (i == '\0')
-		return ((char *)s);
-	return (NULL);
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		result = (str[i] - '0') + (result * 10);
+		i++;
+	}
+	return (result * sign);
 }
