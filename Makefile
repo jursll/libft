@@ -6,60 +6,48 @@
 #    By: julrusse <marvin@42lausanne.ch>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/06 14:53:31 by julrusse          #+#    #+#              #
-#    Updated: 2024/10/09 16:40:31 by julrusse         ###   ########.fr        #
+#    Updated: 2024/10/10 11:04:11 by julrusse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-Library		= libft
+NAME	= libft.a
+CFLAGS	= -Wall -Wextra -Werror
+CC		= gcc
 
-files		= ft_isalpha \
-			ft_isdigit \
-			ft_isalnum \
-			ft_isascii \
-			ft_isprint \
-			ft_strlen \
-			ft_memset \
-			ft_bzero \
-			ft_memcpy \
-			ft_memmove \
-			ft_strlcpy \
-			ft_strlcat \
-			ft_toupper \
-			ft_tolower \
-			ft_strchr \
-			ft_strrchr \
-			ft_strncmp \
-			ft_memchr \
-			ft_memcmp \
-			ft_strnstr \
-			ft_atoi \
+FILES	= ft_isalpha \
+		  ft_isdigit \
+		  ft_isalnum \
+		  ft_isascii \
+		  ft_isprint \
+		  ft_strlen \
+		  ft_memset \
+		  ft_bzero \
+		  ft_memcpy \
+		  ft_memmove \
+		  ft_strlcpy \
+		  ft_strlcat \
+		  ft_toupper \
+		  ft_tolower \
+		  ft_strchr \
+		  ft_strrchr \
+		  ft_strncmp \
+		  ft_memchr \
+		  ft_memcmp \
+		  ft_strnstr \
+		  ft_atoi \
 
-Compiler	= gcc
-CmpFlags	= -Wall -Wextra -Werror
-OUTN		= $(Library).a
-CFILES		= $(files:%=%.c)
-OFILES		= $(files:%=%.o)
-NAME		= $(OUTN)
+OBJ		= $(FILES:.c=.o)
 
-# // Nouveau fichier pour test //
-MAIN_C		= main.c
-TEST_EXEC	= test
+all:	$(NAME)
 
-$(NAME):
-		$(Compiler)	$(CmpFlags) -c	$(CFILES) -I./
-		ar -rc $(OUTN)	$(OFILES)
-
-# // Règle pour compiler avec main.c //
-$(TEST_EXEC): $(NAME) $(MAIN_C)
-		$(Compiler) $(CmpFlags) -o $(TEST_EXEC) $(MAIN_C) $(NAME)
-
-all:	$(NAME) $(TEST_EXEC)
+$(NAME): $(OBJ)
+		ar rcs $(NAME) $(OBJ)
 
 clean:
-		rm -f $(OFILES)
+		rm -f $(OBJ)
 
 fclean:	clean
-		rm -f $(NAME) $(TEST_EXEC)
+		rm -f $(NAME)
 
 re:		fclean all
 
