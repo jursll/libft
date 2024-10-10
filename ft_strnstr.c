@@ -6,7 +6,7 @@
 /*   By: julrusse <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 15:40:04 by julrusse          #+#    #+#             */
-/*   Updated: 2024/10/09 16:21:21 by julrusse         ###   ########.fr       */
+/*   Updated: 2024/10/10 13:19:05 by julrusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strnstr(const char *str, const char *substr, size_t len)
 		return ((char *)str);
 	while (str[i] && i < len)
 	{
-		if (str[i] == substr[j])
+		if (str[i] == substr[0])
 		{
 			j = 0;
 			while (str[i + j] == substr[j] && i + j < len)

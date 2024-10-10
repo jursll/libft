@@ -6,7 +6,7 @@
 /*   By: julrusse <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 11:30:41 by julrusse          #+#    #+#             */
-/*   Updated: 2024/10/06 14:19:37 by julrusse         ###   ########.fr       */
+/*   Updated: 2024/10/10 12:04:24 by julrusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	size_t	i;
 
+	if (!src && !dst)
+		return (NULL);
 	i = 0;
 	if (src < dst)
 	{

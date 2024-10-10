@@ -6,17 +6,20 @@
 /*   By: julrusse <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 11:35:59 by julrusse          #+#    #+#             */
-/*   Updated: 2024/10/09 11:36:05 by julrusse         ###   ########.fr       */
+/*   Updated: 2024/10/10 13:25:27 by julrusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int i)
+char	*ft_strchr(const char *s, int c)
 {
+	unsigned char	i;
+
+	i = (unsigned char)c;
 	while (*s)
 	{
-		if (*s == (char)i)
+		if (*s == i)
 			return ((char *)s);
 		s++;
 	}

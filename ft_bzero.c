@@ -6,7 +6,7 @@
 /*   By: julrusse <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 11:35:54 by julrusse          #+#    #+#             */
-/*   Updated: 2024/10/06 14:04:07 by julrusse         ###   ########.fr       */
+/*   Updated: 2024/10/10 11:45:59 by julrusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_bzero(void *s, size_t len)
 	i = 0;
 	while (i < len)
 	{
-		str[i] = '0';
+		str[i] = 0;
 		i++;
 	}
 }
