@@ -6,7 +6,7 @@
 #    By: julrusse <marvin@42lausanne.ch>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/06 14:53:31 by julrusse          #+#    #+#              #
-#    Updated: 2024/10/10 16:13:10 by julrusse         ###   ########.fr        #
+#    Updated: 2024/10/11 18:11:52 by julrusse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,9 @@ FILES	= ft_isalpha.c \
 		  ft_calloc.c \
 		  ft_strdup.c \
 		  ft_substr.c \
+		  ft_strjoin.c \
+		  ft_strtrim.c \
+		  ft_split.c \
 
 OBJ		= $(FILES:.c=.o)
 
