@@ -6,7 +6,7 @@
 #    By: julrusse <marvin@42lausanne.ch>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/06 14:53:31 by julrusse          #+#    #+#              #
-#    Updated: 2024/10/11 18:11:52 by julrusse         ###   ########.fr        #
+#    Updated: 2024/10/14 14:56:26 by julrusse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,13 @@ FILES	= ft_isalpha.c \
 		  ft_strjoin.c \
 		  ft_strtrim.c \
 		  ft_split.c \
+		  ft_itoa.c \
+		  ft_strmapi.c \
+		  ft_striteri.c \
+		  ft_putchar_fd.c \
+		  ft_putstr_fd.c \
+		  ft_putendl_fd.c \
+		  ft_putnbr_fd.c \
 
 OBJ		= $(FILES:.c=.o)
 

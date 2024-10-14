@@ -6,7 +6,7 @@
 /*   By: julrusse <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 11:31:24 by julrusse          #+#    #+#             */
-/*   Updated: 2024/10/11 18:15:48 by julrusse         ###   ########.fr       */
+/*   Updated: 2024/10/14 17:16:13 by julrusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 		i++;
 	}
 	if (i < dstsize)
-	{
 		dst[i] = '\0';
-	}
 	while (src[i])
 		i++;
 	return (i);

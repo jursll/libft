@@ -1,51 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julrusse <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/11 14:33:27 by julrusse          #+#    #+#             */
-/*   Updated: 2024/10/14 15:22:21 by julrusse         ###   ########.fr       */
+/*   Created: 2024/10/14 13:30:57 by julrusse          #+#    #+#             */
+/*   Updated: 2024/10/14 16:07:45 by julrusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	size_t	i;
-	size_t	j;
-	char	*str;
+	char			*str;
+	unsigned int	i;
 
-	i = 0;
-	j = 0;
-	str = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!s || !f)
+		return (NULL);
+	str = malloc(sizeof(char) * ft_strlen(s) + 1);
 	if (!str)
 		return (NULL);
-	while (s1[i])
+	i = 0;
+	while (s[i])
 	{
-		str[i] = s1[i];
+		str[i] = f(i, s[i]);
 		i++;
 	}
-	while (s2[j])
-	{
-		str[i + j] = s2[j];
-		j++;
-	}
-	str[i + j] = '\0';
+	str[i] = '\0';
 	return (str);
 }
 /*
-#include <stdio.h>
+char	ft_test_function(unsigned int i, char c)
+{
+	if (i % 2 == 0 && c >= 'a' && c <= 'z')
+		return (c - 32);
+	return (c);
+}
+
 int	main(void)
 {
-	char const a[] = "Hello ";
-	char const b[] = "World!";
-	char const c[] = "";
+	char const	a[] = "abcdefghi";
 
-	printf("%s\n", ft_strjoin(a, b));
-	printf("%s\n", ft_strjoin(c, c));
+	printf("%s\n", ft_strmapi(a, ft_test_function));
 	return (0);
 }
 */

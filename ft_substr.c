@@ -6,13 +6,38 @@
 /*   By: julrusse <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 15:43:33 by julrusse          #+#    #+#             */
-/*   Updated: 2024/10/10 17:47:38 by julrusse         ###   ########.fr       */
+/*   Updated: 2024/10/14 18:21:51 by julrusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_raccourci(void)
+/*
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	char	*str;
+	size_t	i;
+	size_t	j;
+
+	str = malloc(sizeof(*s) * (len + 1));
+	if (!str)
+		return (NULL);
+	i = 0;
+	j = 0;
+	while (s[i])
+	{
+		if (i >= start && j < len)
+		{
+			str[j] = s[i];
+			j++;
+		}
+		i++;
+	}
+	str[j] = 0;
+	return (str);
+}
+*/
+static char	*ft_raccourci(void)
 {
 	char	*str;
 

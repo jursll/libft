@@ -6,7 +6,7 @@
 /*   By: julrusse <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 17:22:00 by julrusse          #+#    #+#             */
-/*   Updated: 2024/10/11 18:33:02 by julrusse         ###   ########.fr       */
+/*   Updated: 2024/10/14 16:06:32 by julrusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,27 +35,32 @@ static char	*ft_strndup(const char *s, size_t n)
 {
 	char	*str;
 
-	str = malloc(sizeof(char) * n + 1);
+	str = malloc(sizeof(char) * (n + 1));
 	if (!str)
 		return (NULL);
 	ft_strlcpy(str, s, n + 1);
 	return (str);
 }
 
-char	**ft_split(char const *s, char c)
+static char	**ft_free_tab(char **tab, int k)
 {
-	int		i;
-	int		j;
-	int		k;
-	char	**tab;
+	while (k >= 0)
+	{
+		free(tab[k]);
+		k--;
+	}
+	free(tab);
+	return (NULL);
+}
 
-	if (!s)
-		return (NULL);
+static int	ft_add_words(char **tab, const char *s, char c)
+{
+	int	i;
+	int	j;
+	int	k;
+
 	i = 0;
 	k = 0;
-	tab = malloc(sizeof(char *) * (ft_countstr(s, c) + 1));
-	if (tab == NULL)
-		return (NULL);
 	while (s[i])
 	{
 		while (s[i] == c)
@@ -67,16 +72,25 @@ char	**ft_split(char const *s, char c)
 		{
 			tab[k] = ft_strndup(s + j, i - j);
 			if (!tab[k])
-			{
-				while (k >= 0)
-					free (tab[k--]);
-				free(tab);
-				return (NULL);
-			}
+				return (0);
 			k++;
 		}
 	}
 	tab[k] = NULL;
+	return (1);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**tab;
+
+	if (!s)
+		return (NULL);
+	tab = malloc(sizeof(char *) * (ft_countstr(s, c) + 1));
+	if (!tab)
+		return (NULL);
+	if (!ft_add_words(tab, s, c))
+		return (ft_free_tab(tab, ft_countstr(s, c)));
 	return (tab);
 }
 /*
