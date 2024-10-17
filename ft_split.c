@@ -24,7 +24,7 @@ static int	ft_countstr(char const *s, char c)
 		while (s[i] == c)
 			i++;
 		if (s[i])
-			count ++;
+			count++;
 		while (s[i] && s[i] != c)
 			i++;
 	}
@@ -83,20 +83,24 @@ static int	ft_add_words(char **tab, const char *s, char c)
 char	**ft_split(char const *s, char c)
 {
 	char	**tab;
+	int		count;
+	int		addwords;
 
 	if (!s)
 		return (NULL);
-	tab = malloc(sizeof(char *) * (ft_countstr(s, c) + 1));
+	count = ft_countstr(s, c);
+	tab = malloc(sizeof(char *) * (count + 1));
 	if (!tab)
 		return (NULL);
-	if (!ft_add_words(tab, s, c))
-		return (ft_free_tab(tab, ft_countstr(s, c)));
+	addwords = ft_add_words(tab, s, c);
+	if (!addwords)
+		return (ft_free_tab(tab, count));
 	return (tab);
 }
 /*
 int	main(void)
 {
-	char a[] = "WTF cette fonction de m";
+	char a[] = "   WTF  cette   fonction de m  ";
 	char b = ' ';
 	char **result;
 	int i;
@@ -112,6 +116,25 @@ int	main(void)
 	while (result[i] != NULL)
 	{
 		free(result[i]);
+		i++;
+	}
+	free(result);
+	return (0);
+}
+*/
+/*
+int	main(void)
+{
+	char a[] = "hello!";
+	char b = ' ';
+	char **result;
+	int i;
+
+	result = ft_split(a, b);
+	i = 0;
+	while (result[i] != NULL)
+	{
+		printf("%s\n", result[i]);
 		i++;
 	}
 	free(result);
