@@ -12,41 +12,6 @@
 
 #include "libft.h"
 
-/*
-char	*ft_substr(char const *s, unsigned int start, size_t len)
-{
-	char	*str;
-	size_t	i;
-	size_t	j;
-
-	str = malloc(sizeof(*s) * (len + 1));
-	if (!str)
-		return (NULL);
-	i = 0;
-	j = 0;
-	while (s[i])
-	{
-		if (i >= start && j < len)
-		{
-			str[j] = s[i];
-			j++;
-		}
-		i++;
-	}
-	str[j] = 0;
-	return (str);
-}
-*/
-static char	*ft_raccourci(void)
-{
-	char	*str;
-
-	str = (char *)malloc(1);
-	if (str)
-		str[0] = '\0';
-	return (str);
-}
-
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*str;
@@ -57,7 +22,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	s_len = ft_strlen(s);
 	if (start >= s_len)
-		return (ft_raccourci());
+		return (ft_strdup(""));
 	if (len > s_len - start)
 		len = s_len - start;
 	str = (char *)malloc(sizeof(char) * (len + 1));
@@ -72,3 +37,14 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	str[i] = '\0';
 	return (str);
 }
+/*
+int	main(void)
+{
+	char const a[] = "Hello World!";
+	unsigned int start = 6;
+	size_t len = 5;
+
+	printf("%s\n", ft_substr(a, start, len));
+	return (0);
+}
+*/
